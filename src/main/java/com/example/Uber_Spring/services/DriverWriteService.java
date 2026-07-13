@@ -1,4 +1,4 @@
-package com.example.Uber_Spring.services.Impl;
+package com.example.Uber_Spring.services;
 
 import com.example.Uber_Spring.DTOS.DriverRequestDTO;
 import com.example.Uber_Spring.DTOS.DriverResponseDTO;
