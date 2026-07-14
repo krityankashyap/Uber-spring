@@ -39,7 +39,7 @@ public class Bookings {
 
   @ManyToOne(fetch= FetchType.LAZY)
   @JoinColumn(name= "driver_id" , nullable = false)
-  private Drivers drivers;
+  private Drivers driver;
   
   @Column(nullable = false)
   private String pickupLocation;

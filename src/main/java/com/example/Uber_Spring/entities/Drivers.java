@@ -41,6 +41,8 @@ public class Drivers {
   private String licenseNumber;
   
   private String vehiclePlateNumber;
+
+  private Boolean isAvailable;
   
   @Column(nullable = false, updatable = false)
   private LocalDateTime createdAt;
