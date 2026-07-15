@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.Uber_Spring.entities.Bookings;
+import com.example.Uber_Spring.entities.Passenger;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Bookings, Long>{
@@ -16,4 +17,6 @@ public interface BookingRepository extends JpaRepository<Bookings, Long>{
 
   Optional<Bookings> findByIdAndDriverId(Long bookingId, Long driverId);
   Optional<Bookings> findByIdAndPassengerId(Long bookingId, Long passengerId);
+
+  Optional<Bookings> findByPassenger(Passenger passenger);
 }
