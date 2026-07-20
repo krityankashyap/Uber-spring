@@ -15,8 +15,6 @@ import com.example.Uber_Spring.entities.Bookings;
 import com.example.Uber_Spring.entities.Drivers;
 import com.example.Uber_Spring.entities.Passenger;
 import com.example.Uber_Spring.mapper.BookingMapper;
-import com.example.Uber_Spring.mapper.DriverMapper;
-import com.example.Uber_Spring.mapper.PassengerMapper;
 import com.example.Uber_Spring.repository.BookingRepository;
 import com.example.Uber_Spring.repository.DriverRepository;
 import com.example.Uber_Spring.repository.PassengerRepository;
@@ -54,8 +52,8 @@ public class BookingServiceImpl implements BookingService {
     public List<BookingResponseDTO> findByPassengerId(Long passengerId) {
         Passenger passenger = passengerRepository.findById(passengerId)
                 .orElseThrow(() -> new IllegalArgumentException("Passenger not found with id: " + passengerId));
-        return bookingRepository.findByPassenger(passenger).stream()
-                .map(bookingMapper::toResponse)
+        return bookingRepository.findByPassengerId(passenger.getId()).stream()
+                .map(bookingMapper::toResponseDTO)
                 .collect(Collectors.toList());
     }
     
@@ -64,8 +62,8 @@ public class BookingServiceImpl implements BookingService {
     public List<BookingResponseDTO> findByDriverId(Long driverId) {
         Drivers driver = driverRepository.findById(driverId)
                 .orElseThrow(() -> new IllegalArgumentException("Driver not found with id: " + driverId));
-        return bookingRepository.findByDriver(driver).stream()
-                .map(bookingMapper::toResponse)
+        return bookingRepository.findByDriverId(driver.getId()).stream()
+                .map(bookingMapper::toResponseDTO)
                 .collect(Collectors.toList());
     }
     
